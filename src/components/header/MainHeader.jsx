@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CartIcon } from '../icons/CartIcon';
 import { CloseIcon } from '../icons/CloseIcon';
 import { MenuIcon } from '../icons/MenuIcon';
+import { NavLinkHeader } from './NavLinkHeader';
 
 const AvatarImage = "https://img.icons8.com/color/96/null/circled-user-male-skin-type-7--v1.png";
 
@@ -20,28 +21,32 @@ export const MainHeader = () => {
   };
 
   return (
-    <header className='container mx-auto flex items-center bg-gray-200 gap-8 px-4 py-8'>
-      <button className='md:hidden' onClick={ handleOpenMenu }>
-          <MenuIcon/>
-      </button>
-      <p className='font-bold	text-xl mr-auto mb-1 h-5 md:mr-0 '>Tianquiz</p>
-      <nav className={ navClass }>
-        <button className='mb-12 md:hidden' onClick={ handleCloseMenu }>
-          <CloseIcon/>
+    <>
+      <header className='container mx-auto flex items-center gap-8 p-4 md:py-0'>
+        <button className='md:hidden' onClick={ handleOpenMenu }>
+            <MenuIcon/>
         </button>
-        <a href='#'>Collections</a>
-        <a href='#'>Dogs</a>
-        <a href='#'>Cats</a>
-        <a href='#'>Puppies</a>
-        <a href='#'>About</a>
-        <a href='#'>Contact</a>
-      </nav>
-      <div className='flex gap-4'>
-        <button>
-          <CartIcon/>
-        </button>
-        <img src={ AvatarImage } alt="Imagen de Perfil" className='w-10'/>
-      </div>
-    </header>
+        <p className='font-bold	text-xl mr-auto mb-1 h-5 md:mr-0 '>Tianquiz</p>
+        <nav className={ navClass }>
+          <button className='mb-12 md:hidden' onClick={ handleCloseMenu }>
+            <CloseIcon/>
+          </button>
+          <NavLinkHeader text="Collections"/>
+          <NavLinkHeader text="Dogs"/>
+          <NavLinkHeader text="Cats"/>
+          <NavLinkHeader text="Puppies"/>
+          <NavLinkHeader text="About"/>
+          <NavLinkHeader text="Contact"/>
+        </nav>
+        <div className='flex gap-4'>
+          <button>
+            <CartIcon/>
+          </button>
+          <img src={ AvatarImage } alt="Imagen de Perfil" className='w-10'/>
+        </div>
+      </header>
+      <span className='container mx-auto hidden h-[1px] w-ful bg-gray-500 md:block'></span>
+    </>
+    
   )
 }
